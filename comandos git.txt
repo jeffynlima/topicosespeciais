@@ -1,4 +1,4 @@
-git --version = Verifica a versão do git
+ configgitgit --version = Verifica a versão do git
 git init = Inicia uma repositorio vazio na pasta
 git config --global user.name "username" = Cria usuario do git
 git config --global user.email "email" = Cria email do git
