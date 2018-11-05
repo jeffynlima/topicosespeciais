@@ -31,8 +31,7 @@ public class Cliente implements Serializable{
 	private String cpfOuCnpj;
 	private TipoCliente tipo;
 	
-	
-	@OneToMany
+	@OneToMany(mappedBy="cliente")
 	private List<Endereco> endereco = new ArrayList<>();
 	
 	@ElementCollection
@@ -42,6 +41,8 @@ public class Cliente implements Serializable{
 	@JsonIgnore
 	@OneToMany(mappedBy="cliente")
 	private List<Pedido> pedidos = new ArrayList<>();
+	
+	
 	
 	public List<Pedido> getPedidos() {
 		return pedidos;
@@ -53,6 +54,15 @@ public class Cliente implements Serializable{
 
 	public Cliente() {
 		
+	}
+
+	public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.email = email;
+		this.cpfOuCnpj = cpfOuCnpj;
+		this.tipo = tipo;
 	}
 
 	public List<Endereco> getEndereco() {
@@ -70,16 +80,7 @@ public class Cliente implements Serializable{
 	public void setTelefones(Set<String> telefones) {
 		this.telefones = telefones;
 	}
-
-	public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.email = email;
-		this.cpfOuCnpj = cpfOuCnpj;
-		this.tipo = tipo;
-	}
-
+	
 	public Integer getId() {
 		return id;
 	}
