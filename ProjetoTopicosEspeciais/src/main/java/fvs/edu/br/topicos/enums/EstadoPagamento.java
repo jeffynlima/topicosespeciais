@@ -14,15 +14,42 @@ public enum EstadoPagamento {
 		this.descricao = descricao;
 	}
 	
-
 	public int getCod() {
 		return cod;
 	}
-	
 	
 	public String getDescricao() {
 		return descricao;
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 }

@@ -2,7 +2,9 @@ package fvs.edu.br.topicos.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -32,6 +35,11 @@ public class Produto implements Serializable{
 	inverseJoinColumns = @JoinColumn(name = "categoria_id"))
 	List<Categoria> categorias = new ArrayList<>();
 	
+	@JsonIgnore
+	@OneToMany(mappedBy="id.produto")
+	private Set<ItemPedido> Itens = new HashSet();
+	
+	
 	public Produto() {
 		
 	}
@@ -41,6 +49,16 @@ public class Produto implements Serializable{
 		this.id = id;
 		this.nome = nome;
 		this.preco = preco;
+	}
+
+	
+	
+	public Set<ItemPedido> getItens() {
+		return Itens;
+	}
+
+	public void setItens(Set<ItemPedido> itens) {
+		Itens = itens;
 	}
 
 	public Integer getId() {

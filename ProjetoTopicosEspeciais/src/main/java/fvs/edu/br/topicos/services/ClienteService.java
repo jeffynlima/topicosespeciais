@@ -20,6 +20,4 @@ public class ClienteService {
 		Optional<Cliente> obj = repo.findById(id);
 		return obj.orElse(null);
 	}
-		
-	}
-
+}

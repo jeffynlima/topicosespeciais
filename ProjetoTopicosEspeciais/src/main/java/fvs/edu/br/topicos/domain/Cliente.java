@@ -42,19 +42,10 @@ public class Cliente implements Serializable{
 	@OneToMany(mappedBy="cliente")
 	private List<Pedido> pedidos = new ArrayList<>();
 	
-	
-	
-	public List<Pedido> getPedidos() {
-		return pedidos;
-	}
-
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}
-
 	public Cliente() {
 		
 	}
+
 
 	public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo) {
 		super();
@@ -63,6 +54,15 @@ public class Cliente implements Serializable{
 		this.email = email;
 		this.cpfOuCnpj = cpfOuCnpj;
 		this.tipo = tipo;
+	}
+	
+
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
 	}
 
 	public List<Endereco> getEndereco() {
@@ -80,7 +80,7 @@ public class Cliente implements Serializable{
 	public void setTelefones(Set<String> telefones) {
 		this.telefones = telefones;
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
